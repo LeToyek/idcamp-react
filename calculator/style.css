@@ -52,6 +52,7 @@ body {
   border-radius: 5px;
   padding: 30px;
   margin-top: 20px;
+  position: fix;
 }
 @media screen and (max-width: 513px) {
   .button {
