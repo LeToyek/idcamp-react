@@ -1,0 +1,60 @@
+* {
+  box-sizing: border-box;
+}
+body {
+  font-family: sans-serif;
+  padding: 0%;
+  margin: 0%;
+}
+.display {
+  padding: 32px;
+  color: white;
+  font-size: 24px;
+  background-color: #222;
+}
+
+.flex-container-column {
+  display: flex;
+  flex-direction: column;
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: right;
+}
+.flex-container-row {
+  display: flex;
+}
+.button {
+  flex-basis: 25%;
+
+  font-size: 1em;
+  text-align: center;
+  padding: 40px;
+  border: 1px solid;
+  background: -webkit-linear-gradient(top, #d2d2d2, #ddd);
+  cursor: pointer;
+}
+
+.double {
+  flex-basis: 50%;
+}
+
+.operator,
+.negative,
+.equals {
+  background: orange;
+}
+
+.button:hover {
+  font-weight: bold;
+}
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
+  padding: 30px;
+  margin-top: 20px;
+}
+@media screen and (max-width: 513px) {
+  .button {
+      padding: 10px;
+  }
+}
