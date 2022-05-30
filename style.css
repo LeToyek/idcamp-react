@@ -12,12 +12,21 @@ h3{
     color: #00a2c6;
 }
 
+main{
+    overflow: auto;
+    padding: 2em 2em 0em 2em;
+}
+
 footer{
     padding: 20px;
     color: white;
     background-color: #00a2c6;
     text-align: center;
     font-weight: bold;
+}
+nav{
+    position: sticky;
+    top: 0;
 }
 nav a{
     font-size: 18px;
@@ -27,9 +36,9 @@ nav a{
 nav a:hover{
     font-weight: bold;
 }
-.content{
-    justify-content: center;
-    align-items: center;
+#content{
+    float: left;
+    width: 75%;
 }
 .featured-image{
     width: 100%;
@@ -39,15 +48,18 @@ nav a:hover{
 }
 article{
     border-radius: 16px;
-    margin: 2em 2em 0em 2em;
+    margin: 0em 2em 2em 0em;
+
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
     padding: 16px;
 }
 aside{
     border-radius: 16px;
-    margin: 2em 2em 2em 2em;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
     padding: 16px;
+    float: right;
+    width: 25%;
+    box-sizing: border-box;
 }
 
 .header-aside{
@@ -81,3 +93,10 @@ aside{
     padding: 60px;
     margin: 0%;
 }
+@media screen and (max-width: 1000px) {
+    #content,
+    aside {
+        width: 100%;
+        padding: 0;
+    }
+  }
