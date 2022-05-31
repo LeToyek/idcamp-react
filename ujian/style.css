@@ -1,104 +1,279 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap');
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Poppins',sans-serif;
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
 }
-header{
-    position: fixed;
+header {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  padding: 32px 100px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 2;
+  background-color: white;
+}
+header .title {
+  font-weight: 900;
+  font-size: 24px;
+  color: #333;
+}
+header ul {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+}
+header ul li {
+  list-style: none;
+  margin-left: 24px;
+}
+header ul li a {
+  text-decoration: none;
+  padding: 5px 10px;
+  color: #333;
+  transition: 0.3s ease-in-out;
+}
+header ul li a:hover {
+  font-weight: bold;
+  color: #6d8b74;
+}
+main {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+.container-1 {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: space-between;
+  padding-left: 100px;
+  position: relative;
+  color: #333;
+}
+.container-1 .left {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 60%;
+}
+.container-1 .right {
+  display: flex;
+  align-items: center;
+  width: 40%;
+}
+.container-1 img {
+  width: 400px;
+}
+.container-1 h1 {
+  font-size: 80px;
+  font-weight: bold;
+}
+.container-1 h2 {
+  font-size: 60px;
+}
+.container-1 em {
+  font-style: normal;
+  color: #6d8b74;
+}
+.container-1 p {
+  width: 400px;
+}
+.container-2 {
+  width: 100%;
+  height: 100vh;
+  background-color: #333;
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+}
+.container-2 img {
+  max-width: 60%;
+  height: 100vh;
+  max-height: 100vh;
+}
+.container-2 .right {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  font-size: 16px;
+  width: 40%;
+  padding: 40px 60px;
+  color: white;
+}
+.container-2 h1 {
+  font-size: 60px;
+  font-weight: 900;
+}
+.container-3 {
+  width: 100%;
+  height: 150vh;
+  background-color: white;
+  padding: 60px 100px;
+}
+.container-3 .title {
+  display: flex;
+  justify-content: space-between;
+  height: 25%;
+}
+.container-3 .title h1 {
+  color: #333;
+  width: 60%;
+  font-size: 50px;
+  padding-right: 100px;
+  font-weight: bold;
+}
+.container-3 .description {
+  width: 40%;
+  display: flex;
+  align-items: flex-end;
+  color: #333;
+}
+.container-3 .content {
+  margin-top: 80px;
+  height: 75%;
+  display: flex;
+  justify-content: space-between;
+  flex: row;
+  flex-wrap: wrap;
+}
+.container-3 .wrapper {
+  min-width: 150px;
+  max-width: 30%;
+  height: 500px;
+  border-radius: 0.8em;
+  overflow: hidden;
+  box-shadow: 0em 0.4em 12px 0em rgb(229, 229, 229);
+}
+.container-3 .wrapper .card {
+  width: 100%;
+  height: 70%;
+  overflow: hidden;
+}
+.container-3 .card img {
+  width: 100%;
+  height: 100%;
+  transition: 0.5s ease-in-out;
+  object-fit: cover;
+}
+.container-3 .card img:hover {
+  transform: scale(1.5, 1.5);
+}
+.container-3 .descriptions {
+  padding: 0.5em;
+  height: 30%;
+}
+.container-3 .descriptions p {
+  font-size: 0.8em;
+  color: grey;
+}
+.container-3 .descriptions em {
+  color: #333;
+}
+@media screen and (max-width: 1000px) {
+  header{
+    padding: 16px 40px;
+  }
+  .container-1{
+    padding: 40px;
+  }
+  .container-1 .right{
+    display: none;
+  }
+  .container-1 h1{
+    font-size: 40px;
+  }
+  .container-1 h2{
+    font-size: 30px;
+  }
+  .container-2{
+    flex-direction: column;
+    height: auto;
+  }
+  .container-2 img{
+    max-width: 100%;
+    width: 100vw;
+  }
+  .container-2 .right{
     width: 100%;
-    top: 0;
-    padding: 32px 100px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    z-index: 2;
-    background-color: white;
-}
-header .title{
-    font-weight: 900;
-    font-size: 24px;
-}
-header ul{
-    display: flex;
-    justify-content: center;
     text-align: center;
-}
-header ul li{
-    list-style: none;
-    margin-left: 24px;
-}
-header ul li a{
-    text-decoration: none;
-    padding: 5px 10px;
-    color: #333;
-    transition: .3s ease-in-out;
-}
-header ul li a:hover{
-    font-weight: bold;
-    color: #6D8B74;
-}
-main{
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
-
-}
-.container-1{
-    width: 100%;
-    height: 100vh;
+  }
+  .container-3{
+    margin-top: 20px;
+    padding: 40px;
+  }
+  .container-3 .title{
     display: flex;
     flex-direction: column;
     justify-content: center;
-    padding-left: 100px;
-    position: relative;
+  }
+  .container-3 .title h1{
+    width: 100%;
+    padding-right: 0;
+    font-size: 30px;
+  }
+  .container-3 .description{
+    width: 100%;
+  }
+  .container-3 .wrapper{
+    max-width: 100%;
+    margin-bottom: 30px;
+  }
 }
-.container-1 h1{
-    font-size: 80px;
-    font-weight: bold;
-}
-.container-1 h2{
-    font-size: 60px;
-}
-.container-1 em{
-    font-style: normal;
-    color: #6D8B74;
-}
-.container-1 p{
-    width: 400px;
 
-}
-.container-2{
-    width: 100%;
-    height: 100vh;
-    background-color: #333;
-    position: relative;
-    display: flex;
-    justify-content: space-between;
-}
-.container-2 img{
-    max-width: 60%;
-    height: 100vh;
-    max-height: 100vh;
-}
-.container-2 .right{
-    display: flex;
-    justify-content: center;
+@media screen and (max-width: 600px) {
+  header ul{
+    display: none;
+  }
+  header{
+    padding: 16px 40px;
+  }
+  .container-1{
+    padding: 40px;
+  }
+  .container-1 .right{
+    display: none;
+  }
+  .container-1 h1{
+    font-size: 40px;
+  }
+  .container-1 h2{
+    font-size: 30px;
+  }
+  .container-2{
     flex-direction: column;
-    font-size: 16px;
-    width: 40%;
-    padding: 40px 60px;
-    color: white;
-}
-.container-2 h1{
-    font-size: 60px;
-    font-weight: 900;
-}
-.container-3{
+  }
+  .container-2 img{
+    max-width: 100%;
+    width: 100vh;
+  }
+  .container-2 .right{
     width: 100%;
-    height: 100vh;
-    background-color: white;
-    position: relative;
+    text-align: center;
+  }
+  .container-3{
+    margin-top: 20px;
+    padding: 40px;
+  }
+  .container-3 .title{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .container-3 .title h1{
+    width: 100%;
+    padding-right: 0;
+    font-size: 30px;
+  }
+  .container-3 .description{
+    width: 100%;
+  }
+  .container-3 .wrapper{
+    max-width: 100%;
+    margin-bottom: 30px;
+  }
 }
