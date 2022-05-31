@@ -41,6 +41,7 @@ header ul li a:hover{
 }
 main{
     display: flex;
+    flex-direction: column;
     justify-content: space-between;
     align-items: center;
 
@@ -55,5 +56,49 @@ main{
     position: relative;
 }
 .container-1 h1{
+    font-size: 80px;
+    font-weight: bold;
+}
+.container-1 h2{
+    font-size: 60px;
+}
+.container-1 em{
+    font-style: normal;
+    color: #6D8B74;
+}
+.container-1 p{
+    width: 400px;
 
+}
+.container-2{
+    width: 100%;
+    height: 100vh;
+    background-color: #333;
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+}
+.container-2 img{
+    max-width: 60%;
+    height: 100vh;
+    max-height: 100vh;
+}
+.container-2 .right{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    font-size: 16px;
+    width: 40%;
+    padding: 40px 60px;
+    color: white;
+}
+.container-2 h1{
+    font-size: 60px;
+    font-weight: 900;
+}
+.container-3{
+    width: 100%;
+    height: 100vh;
+    background-color: white;
+    position: relative;
 }
