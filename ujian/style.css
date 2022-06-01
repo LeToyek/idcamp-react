@@ -41,33 +41,50 @@ header ul li a:hover {
   color: #6d8b74;
 }
 main {
-  display: flex;
+  /* display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
+  justify-content: space-between; */
+  overflow: auto;
 }
+
 .container-1 {
+  float: left;
   width: 100%;
-  height: 100vh;
+  min-height: 100vh;
   display: flex;
-  justify-content: space-between;
-  padding-left: 100px;
+  justify-content: center;
+  flex-direction: column;
   position: relative;
   color: #333;
 }
-.container-1 .left {
+#content{
+  float: left;
+  width: 70%;
+  padding-left: 100px;
+}
+aside{
+  margin-top: 100px;
+  margin-right: 40px;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  width: 60%;
-}
-.container-1 .right {
-  display: flex;
+  text-align: center;
   align-items: center;
-  width: 40%;
+  width: 25%;
+  float: right;
+  box-sizing: border-box;
 }
-.container-1 img {
-  width: 400px;
+aside h3{
+  margin-top: 8px;
+  font-size: 24px;
+}
+aside p{
+  color: grey;
+}
+aside img {
+  margin-top: 32px;
+  border-radius: 20em;
+  width: 300px;
 }
 .container-1 h1 {
   font-size: 80px;
@@ -89,19 +106,20 @@ main {
   background-color: #333;
   position: relative;
   display: flex;
+  flex-direction: column;
   justify-content: space-between;
 }
 .container-2 img {
-  max-width: 60%;
+  width: 100%;
   height: 100vh;
-  max-height: 100vh;
+  max-height: 60%;
 }
-.container-2 .right {
+.container-2 article {
   display: flex;
   justify-content: center;
   flex-direction: column;
   font-size: 16px;
-  width: 40%;
+  width: 100%;
   padding: 40px 60px;
   color: white;
 }
@@ -111,9 +129,9 @@ main {
 }
 .container-3 {
   width: 100%;
-  height: 150vh;
+  min-height: 150vh;
   background-color: white;
-  padding: 60px 100px;
+  padding: 40px 0px;
 }
 .container-3 .title {
   display: flex;
@@ -123,7 +141,7 @@ main {
 .container-3 .title h1 {
   color: #333;
   width: 60%;
-  font-size: 50px;
+  font-size: 45px;
   padding-right: 100px;
   font-weight: bold;
 }
@@ -138,12 +156,13 @@ main {
   height: 75%;
   display: flex;
   justify-content: space-between;
-  flex: row;
+  flex-direction: column;
   flex-wrap: wrap;
 }
 .container-3 .wrapper {
+  margin-top: 30px;
   min-width: 150px;
-  max-width: 30%;
+  max-width: 100%;
   height: 500px;
   border-radius: 0.8em;
   overflow: hidden;
@@ -174,15 +193,20 @@ main {
 .container-3 .descriptions em {
   color: #333;
 }
+footer{
+  
+  font-size: .8em;
+  color: white;
+  background-color: #333;
+  padding: 24px;
+  text-align: center;
+}
 @media screen and (max-width: 1000px) {
   header{
     padding: 16px 40px;
   }
   .container-1{
-    padding: 40px;
-  }
-  .container-1 .right{
-    display: none;
+    padding-left: 40px;
   }
   .container-1 h1{
     font-size: 40px;
@@ -198,13 +222,14 @@ main {
     max-width: 100%;
     width: 100vw;
   }
-  .container-2 .right{
+  .container-2 article{
     width: 100%;
     text-align: center;
   }
   .container-3{
     margin-top: 20px;
     padding: 40px;
+    padding-bottom: 0%;
   }
   .container-3 .title{
     display: flex;
@@ -223,9 +248,22 @@ main {
     max-width: 100%;
     margin-bottom: 30px;
   }
+  #content{
+    padding-left: 0;
+    width: 100%;
+  }
+  aside{
+    margin-right: 0%;
+    width: 100%;
+    padding-bottom: 40px;
+  }
 }
 
 @media screen and (max-width: 600px) {
+  #content{
+    padding-left: 0;
+    width: 100%;
+  }
   header ul{
     display: none;
   }
@@ -233,10 +271,7 @@ main {
     padding: 16px 40px;
   }
   .container-1{
-    padding: 40px;
-  }
-  .container-1 .right{
-    display: none;
+    flex-direction: column;
   }
   .container-1 h1{
     font-size: 40px;
@@ -251,13 +286,13 @@ main {
     max-width: 100%;
     width: 100vh;
   }
-  .container-2 .right{
+  .container-2 article{
     width: 100%;
     text-align: center;
   }
   .container-3{
     margin-top: 20px;
-    padding: 40px;
+    padding-bottom: 0;
   }
   .container-3 .title{
     display: flex;
@@ -274,6 +309,10 @@ main {
   }
   .container-3 .wrapper{
     max-width: 100%;
-    margin-bottom: 30px;
+  }
+  aside{
+    margin-right: 0%;
+    width: 100%;
+    padding-bottom: 40px;
   }
 }
