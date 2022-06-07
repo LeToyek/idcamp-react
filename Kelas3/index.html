@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Welcome to Cube World!</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <div class="contents" align="center" hidden>
+      <button id="incrementButton">Tekan Aku :)</button>
+      <h3>Kamu sudah menekan tombol di atas sebanyak <span id="count">0</span></h3>
+    </div>
+    <div class="contents2">
+      <h2 align="center">Isi data diri</h2>
+      <div class="formContent">
+        <form id="formDataDiri">
+          <div class="form-element">
+            <label for="inputNama">Nama:</label><br>
+            <input type="text" id="inputNama" name="nama" placeholder="Nama Anda" required><br>
+          </div>
+          <div class="form-element">
+            <label for="inputDomisili">Domisili:</label><br>
+            <input type="text" id="inputDomisili" name="domisili" placeholder="Domisili Anda" required><br>
+          </div>
+          <div class="form-element">
+            <input type="submit" value="Submit Data">
+          </div>
+        </form>
+      </div>
+      <h3 id="messageAfterSubmit"></h3>
+    </div>
+    <script src="./index.js"></script>
+  </body>
+</html>
