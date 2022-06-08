@@ -3,13 +3,14 @@ let y = 2;
 let x1 = 1;
 let y1 = 2;
 console.log("|\t\tx\t\t|\t\ty\t\t|")
-for (let i = 0; i < 10; i++) {
-    x = x1;
-    y = y1;
-    x1 = (9+2*y)/5
-    y1 = (8-x*2)/-3
+for (let i = 0; i < 20; i++) {
     
-
+    x1 = (9+2*y)/5
+    x = x1;
+    y1 = (8-x*2)/-3
+    y = y1;
+    console.log("------------------")
+    console.log("iterasi ke" +(i))
     console.log("|"+x1+"|"+y1+"|")
     console.log("------------------")
 }

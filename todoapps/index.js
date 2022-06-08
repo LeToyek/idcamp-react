@@ -36,10 +36,16 @@ document.addEventListener(RENDER_EVENT,function () {
     const uncomplatedTodoList = document.getElementById('todos')
     uncomplatedTodoList.innerHTML = ''
 
+    const completedTodoList = document.getElementById('completed-todos')
+    completedTodoList.innerHTML = ''
+
+
     for (const todo of todos) {
         const todoElement = makeTodo(todo)
         if (!todo.isCompleted) {
             uncomplatedTodoList.append(todoElement)
+        }else{
+            completedTodoList.append(todoElement)
         }
     }
 })
@@ -82,6 +88,7 @@ function makeTodo(todoObject) {
 
         checkButton.addEventListener('click',function () {
             addTaskToCompleted(todoObject.id)
+            
         })
 
         container.append(checkButton)
@@ -90,7 +97,7 @@ function makeTodo(todoObject) {
     return container
 }
 
-function addTaskToComplated(id) {
+function addTaskToCompleted(id) {
     const todoTarget = findTodo(id)
 
     if (todoTarget == null) {
@@ -103,9 +110,38 @@ function addTaskToComplated(id) {
 
 function findTodo(id) {
     for (const todo of todos) {
-        if (todo.id == id) {
+        if (todo.id === id) {
             return todo
         }
     }
     return null
+}
+function removeTaskFromCompleted(id) {
+    const todoTarget = findTodoIndex(id)
+    
+    if (todoTarget === -1) {
+        return
+    }
+
+    todos.splice(todoTarget,1)
+    document.dispatchEvent(new Event(RENDER_EVENT))
+}
+
+function undoTaskFromCompleted(id) {
+    const todoTarget = findTodo(id)
+
+    if (todoTarget == null) {
+        return
+    }
+
+    todoTarget.isCompleted = false
+    document.dispatchEvent(new Event(RENDER_EVENT))
+}
+function findTodoIndex(id) {
+    for (const index in todos) {
+        if (todos[index].id === id) {
+            return index
+        }
+    }
+    return -1
 }
