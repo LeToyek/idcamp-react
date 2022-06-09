@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div class="title">
+            Bookshelf Apps
+        </div>
+    </header>
+    <main>
+        <div class="input-card">
+            <h1>Masukkan Buku Baru</h1>
+            <form id="book-form">
+                <div class="text-field">
+                    <label for="bookTitle">Judul</label>
+                    <input type="text" id="bookTitle" required="">
+                </div>
+                <div class="text-field">
+                    <label for="bookAuthor">Penulis</label>
+                    <input type="text" id="bookAuthor" required="">
+                </div>
+                <div class="text-field">
+                    <label for="bookYear">Judul</label>
+                    <input type="text" id="bookYear" required="">
+                </div>
+                <label for="is-done">Selesai Dibaca</label>
+                <input type="radio" id="is-done">
+                <button id="bookSubmit" type="submit">
+                    Masukkan Buku ke rak <b>Belum selesai dibaca</b>
+                </button>
+            </form>
+        </div>
+        <div class="search-bar">
+            <h1>Cari Buku (Opsional)</h1>
+            <label for="title-search">Judul</label>
+            <input type="text" id="search-field">
+            <button id="search" type="submit">
+                Cari
+            </button>
+        </div>
+        <div class="read-list">
+            <h2>Belum selesai dibaca</h2>
+            <div class="book"></div>
+        </div>
+        <div class="not-read-list">
+            <h2>Selesai dibaca</h2>
+            <div class="book"></div>
+        </div>
+    </main>
+</body>
+</html>
