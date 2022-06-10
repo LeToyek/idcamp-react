@@ -1,59 +1,58 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
     <header>
-        <div class="title">
-            Bookshelf Apps
-        </div>
+      <div class="title">Bookshelf Apps</div>
     </header>
     <main>
+      <div class="wrapper">
         <div class="input-card">
-            <h1>Masukkan Buku Baru</h1>
-            <form id="book-form">
-                <div class="text-field">
-                    <label for="bookTitle">Judul</label>
-                    <input type="text" id="bookTitle" required="">
-                </div>
-                <div class="text-field">
-                    <label for="bookAuthor">Penulis</label>
-                    <input type="text" id="bookAuthor" required="">
-                </div>
-                <div class="text-field">
-                    <label for="bookYear">Judul</label>
-                    <input type="text" id="bookYear" required="">
-                </div>
-                <label for="is-done">Selesai Dibaca</label>
-                <input type="radio" id="is-done">
-                <button id="bookSubmit" type="submit">
-                    Masukkan Buku ke rak <b>Belum selesai dibaca</b>
-                </button>
-            </form>
+          <h2>Masukkan Buku Baru</h2>
+          <form id="book-form">
+            <div class="submit-pack">
+              <label for="bookTitle">Judul</label>
+              <input type="text" id="bookTitle" required="" />
+            </div>
+            <div class="submit-pack">
+              <label for="bookAuthor">Penulis</label>
+              <input type="text" id="bookAuthor" required="" />
+            </div>
+            <div class="submit-pack">
+              <label for="bookYear">Tahun</label>
+              <input type="text" id="bookYear" required="" />
+            </div>
+
+            <div class="check-field">
+              <label for="is-done">Selesai Dibaca</label>
+              <input type="checkbox" id="is-done" />
+            </div>
+
+            <button id="bookSubmit" type="submit" class="addBook">+</button>
+          </form>
         </div>
-        <div class="search-bar">
-            <h1>Cari Buku (Opsional)</h1>
-            <label for="title-search">Judul</label>
-            <input type="text" id="search-field">
-            <button id="search" type="submit">
-                Cari
-            </button>
-        </div>
-        <div class="container">
-            <h2>Belum selesai dibaca</h2>
-            <div class="book-container" id="not-finish"></div>
+        <div class="input-card">
+          <h2>Cari Buku (Opsional)</h2>
+          <label for="title-search">Judul</label>
+          <input type="text" id="search-field" />
+          <button id="search" type="submit">Cari</button>
         </div>
         <div class="container">
-            <h2>Selesai dibaca</h2>
-            <div class="book-container" id="finish"></div>
-            
+          <h2>Belum selesai dibaca</h2>
+          <div class="book-container" id="not-finish"></div>
         </div>
+        <div class="container">
+          <h2>Selesai dibaca</h2>
+          <div class="book-container" id="finish"></div>
+        </div>
+      </div>
     </main>
     <script src="index.js"></script>
-</body>
+  </body>
 </html>

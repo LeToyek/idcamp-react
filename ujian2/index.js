@@ -2,12 +2,10 @@ document.addEventListener("DOMContentLoaded", function () {
   if (isStorageExist) {
     loadData();
   }
-  console.log("workk");
   const submit = document.getElementById("bookSubmit");
   submit.addEventListener("click", function (event) {
     event.preventDefault();
     addBook();
-    console.log(books);
   });
   const search = document.getElementById("search");
   search.addEventListener("click", function () {
@@ -35,7 +33,11 @@ function addBook() {
   const author = document.getElementById("bookAuthor").value;
   const year = document.getElementById("bookYear").value;
   const id = generateID();
+  const isDone = document.getElementById("is-done")
   const book = generateObject(id, title, author, year, false);
+  if (isDone.checked) {
+    book.isComplete = true
+  }
   books.push(book);
   document.dispatchEvent(new Event(RENDER_EVENT));
   saveData();
@@ -43,13 +45,13 @@ function addBook() {
 function generateID() {
   return +new Date();
 }
-function generateObject(id, title, author, year, isCompleted) {
+function generateObject(id, title, author, year, isComplete) {
   return {
     id,
     title,
     author,
     year,
-    isCompleted,
+    isComplete,
   };
 }
 const books = [];
@@ -63,13 +65,10 @@ document.addEventListener(RENDER_EVENT, function (event) {
 
   if (event.detail && event.detail.searchQuery !== '') {
     const { detail } = event;
-    console.log(detail);
     if (detail.eventName = "search") {
       const searchResult = books.filter(
         (books) => books.title === detail.searchQuery
       );
-      console.log(searchResult)
-      console.log(detail.searchQuery)
       showBooks(searchResult, unFinishedRead, finishRead);
       return;
     }
@@ -94,9 +93,10 @@ function makeBook(bookObject) {
   item.append(textTitleBook, textAuthorBook, textYearBook);
 
   const buttonDelete = document.createElement("button");
-  item.classList.add("button-delete");
+  buttonDelete.classList.add("button-delete");
   buttonDelete.addEventListener("click", function () {
     removeBook(bookObject.id);
+
   });
   buttonDelete.innerText = "delete book";
 
@@ -105,14 +105,14 @@ function makeBook(bookObject) {
   card.setAttribute("id", `book-${bookObject.id}`);
   card.append(item);
 
-  if (bookObject.isCompleted === true) {
+  if (bookObject.isComplete === true) {
     const buttonUndoFinish = document.createElement("button");
     buttonUndoFinish.classList.add("button-undo-finish");
     buttonUndoFinish.innerText = "belum selesai dibaca";
     buttonUndoFinish.addEventListener("click", function () {
       undoFinish(bookObject.id);
     });
-    card.append(buttonUndoFinish);
+    card.append(buttonUndoFinish,buttonDelete);
   } else {
     const buttonFinish = document.createElement("button");
     buttonFinish.classList.add("button-finish");
@@ -120,10 +120,9 @@ function makeBook(bookObject) {
     buttonFinish.addEventListener("click", function () {
       finish(bookObject.id);
     });
-    card.append(buttonFinish);
+    card.append(buttonFinish,buttonDelete);
   }
 
-  card.append(buttonDelete);
 
   return card;
 }
@@ -131,7 +130,7 @@ function makeBook(bookObject) {
 function showBooks(books, finish, unFinish) {
   for (const b of books) {
     const book = makeBook(b);
-    if (!b.isCompleted) {
+    if (!b.isComplete) {
       finish.append(book);
     } else {
       unFinish.append(book);
@@ -170,12 +169,11 @@ function removeBook(id) {
   if (bookTargetIndex === -1) {
     return;
   }
-
+  alert('buku berjudul ' + books[bookTargetIndex].title + ' telah dihapus')
   books.splice(bookTargetIndex, 1);
   document.dispatchEvent(new Event(RENDER_EVENT));
   saveData();
 }
-// Alternative method to find book
 function findBook(id) {
   for (const b of books) {
     if (b.id === id) {
@@ -189,7 +187,7 @@ function undoFinish(id) {
   if (bookTarget === null) {
     return;
   }
-  bookTarget.isCompleted = false;
+  bookTarget.isComplete = false;
 
   document.dispatchEvent(new Event(RENDER_EVENT));
   saveData();
@@ -199,8 +197,7 @@ function finish(id) {
   if (bookTargetIndex === -1) {
     return;
   }
-  console.log(parseInt(bookTargetIndex, 2));
-  books[parseInt(bookTargetIndex, 16)].isCompleted = true;
+  books[parseInt(bookTargetIndex, 16)].isComplete = true;
   document.dispatchEvent(new Event(RENDER_EVENT));
   saveData();
 }
