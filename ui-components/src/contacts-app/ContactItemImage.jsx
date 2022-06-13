@@ -1,11 +1,10 @@
 import React from 'react'
 
 
-const ContactItemImage = ({url}) => {
-
+const ContactItemImage = ({imageUrl}) => {
   return (
     <div>
-        <img src={url} alt='contact avatar' />
+        <img src={(imageUrl)} alt='contact avatar' />
     </div>
   )
 }
