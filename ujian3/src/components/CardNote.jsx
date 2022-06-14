@@ -1,18 +1,23 @@
-import React from 'react'
+import React from "react";
 
-const CardNote = () => {
+const CardNote = ({ title, createdAt, body, onDelete, id, archived, onArchive }) => {
   return (
     <div>
-      <h4 id='title'>Title</h4>
-      <h6 id='date'>Kamis,26 Desember 2022</h6>
-      <p className='note'>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab similique ut magni quidem blanditiis ex facere exercitationem! Hic omnis delectus porro accusamus tempore molestiae illo quisquam unde laudantium quis? Ratione!
-      </p>
+      <h4 id="title">{title}</h4>
+      <h6 id="date">{createdAt}</h6>
+      <p className="note">{body}</p>
       <br />
-      <button className='Delete'> Delete </button>
-      <button className='Archive'> Archive</button>
+      <button className="Delete" onClick={() => onDelete(id)}>
+        {" "}
+        Delete{" "}
+      </button>
+      {archived ? (
+        <button className="Archive" onClick={() => onArchive(id)}> UnArchive</button>
+      ) : (
+        <button className="Archive" onClick={() => onArchive(id)}> Archive</button>
+      )}
     </div>
-  )
-}
+  );
+};
 
-export default CardNote
+export default CardNote;
