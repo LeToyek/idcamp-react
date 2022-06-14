@@ -79,6 +79,7 @@ textarea{
     font-weight: bold;
     color: rgba(0, 0, 0, 0.509);
     font-size: 16px;
+    cursor: pointer;
 }
 .field >*{
     border: 1px solid #F6E3C5;
