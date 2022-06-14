@@ -42,7 +42,7 @@ class App extends React.Component {
   onSearchNoteEventHandler(search) {
     let result = [];
     if (search !== "") {
-      result = this.state.notes.filter((note) => note.title === search);
+      result = this.state.notes.filter((note) => note.title.toLowerCase() === search.toLowerCase());
     }
     this.setState((prevState) => ({
       ...prevState,
