@@ -153,3 +153,9 @@ h2,h1{
 h5{
     color: #FF5D5D;
 }
+.Notes .unavailable{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    color: #b2978a;
+}

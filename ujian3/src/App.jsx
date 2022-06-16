@@ -1,4 +1,5 @@
 import React from "react";
+import { getInitialData, showFormattedDate } from "./utils";
 import NoteInput from "./components/NoteInput";
 import Notes from "./components/Notes";
 import SearchNote from "./components/SearchNote";
@@ -8,7 +9,7 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      notes: [],
+      notes: getInitialData(),
       searchResult: [],
     };
     this.onAddNoteEventHandler = this.onAddNoteEventHandler.bind(this);
@@ -18,26 +19,21 @@ class App extends React.Component {
   }
   onAddNoteEventHandler({ title, body }) {
     this.setState((prevState) => {
+      const date = +new Date()
       return {
         notes: [
           ...prevState.notes,
           {
-            id: +new Date(),
+            id: date,
             title,
             body,
+            createdAt: showFormattedDate(date),
             archived: false,
-            createdAt: `${
-              +new Date().getDay() +
-              "/" +
-              (1 + new Date().getMonth()) +
-              "/" +
-              new Date().getFullYear()
-            }`,
           },
         ],
       };
     });
-    console.log(this.state.createdAt);
+    
   }
   onSearchNoteEventHandler(search) {
     let result = [];
